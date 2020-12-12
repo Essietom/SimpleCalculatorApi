@@ -1,10 +1,24 @@
 package com.example.calculator.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Data {
+    @Id
+    private int id;
     private int a;
     private int b;
     private int c;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public int getA() {
         return a;

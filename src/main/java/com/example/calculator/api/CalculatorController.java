@@ -1,8 +1,11 @@
 package com.example.calculator.api;
 
 import com.example.calculator.model.Data;
+import com.example.calculator.model.Result;
 import com.example.calculator.service.CalculatorService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -15,9 +18,15 @@ public class CalculatorController {
     }
 
     @CrossOrigin
-    @PostMapping("/collect-data")
-    public int previewFixedDeposit(@RequestBody Data data)  {
-        return service.saveAndCalculate(data);
+    @PostMapping("/perform-operation")
+    public Result previewFixedDeposit(@RequestBody Data data)  {
+        return service.performOperation(data);
+    }
+
+    @CrossOrigin
+    @GetMapping("/get-data")
+    public List<Data> displayDbData(@RequestBody Data data)  {
+        return service.getDbData();
     }
 
 }
