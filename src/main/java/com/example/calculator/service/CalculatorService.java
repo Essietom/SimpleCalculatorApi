@@ -39,7 +39,7 @@ public class CalculatorService {
 
     public int calculateDataFromBackEnd(){
         int answer = 0;
-        List<Data> getLastTen = repository.findTopOrderByIdDesc();
+        List<Data> getLastTen = repository.findFirst10ByOrderByIdDesc();
         for(Data i:getLastTen){
            int d =  i.getA() + i.getB() + i.getC();
            answer+=d;
